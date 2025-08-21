@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Crop Prediction</title>
+  <style>
+    body { font-family: Arial, sans-serif; background:#f5f5f5; }
+    .box { max-width:450px; margin:40px auto; padding:20px; background:#fff; border-radius:10px; box-shadow:0 0 10px rgba(0,0,0,0.1); }
+    h2 { text-align:center; }
+    label { display:block; margin-top:10px; }
+    input, button { width:100%; padding:8px; margin-top:5px; border-radius:6px; border:1px solid #ccc; }
+    button { background:#28a745; color:#fff; border:none; margin-top:15px; cursor:pointer; }
+    button:hover { background:#218838; }
+    .msg { margin-top:15px; font-weight:bold; text-align:center; }
+    body { background: url("https://www.shutterstock.com/image-photo/beautiful-landscape-field-ripe-rye-600nw-1774166006.jpg") no-repeat center center fixed; background-size: cover; }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h2>🌾 Crop Predictor</h2>
+    <form action="/predict" method="post">
+      <label>Nitrogen <input type="number" name="Nitrogen" required></label>
+      <label>Phosphorus <input type="number" name="Phosphorus" required></label>
+      <label>Potassium <input type="number" name="Potassium" required></label>
+      <label>Temperature <input type="number" name="Temperature" required></label>
+      <label>Humidity <input type="number" name="Humidity" required></label>
+      <label>pH <input type="number" name="Ph" required></label>
+      <label>Rainfall <input type="number" name="Rainfall" required></label>
+      <button type="submit">Predict</button>
+    </form>
+    {% if result %}<div class="msg" style="color:green">{{ result }}</div>{% endif %}
+    {% if error %}<div class="msg" style="color:red">{{ error }}</div>{% endif %}
+  </div>
+</body>
+</html>
